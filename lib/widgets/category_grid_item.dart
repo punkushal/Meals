@@ -5,15 +5,19 @@ import 'package:flutter/material.dart';
 import 'package:meal/models/category.dart';
 
 class CategoryGridItem extends StatelessWidget {
-  const CategoryGridItem({super.key, required this.category});
+  const CategoryGridItem(
+      {super.key, required this.category, required this.onSelectedCategory});
   //I wanna add colors and title of the Category so i need to take category as
   //argument to use these properties
   final Category category;
+  final void Function() onSelectedCategory;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       //This widget give user to feedback and tappable option as well
-      onTap: () {},
+      onTap:
+          onSelectedCategory, //build() has it's context so don't have to manually set the context
+
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(16),
       child: Container(
