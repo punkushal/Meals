@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meal/models/meal.dart';
-import 'package:meal/widgets/each_meal_detail.dart';
+import 'package:meal/screens/meal_details.dart';
 import 'package:meal/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -17,7 +17,7 @@ class MealItem extends StatelessWidget {
 
   void _selectedMealDetail(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(
-      builder: (ctx) => EachMealDetail(meal: meals),
+      builder: (ctx) => MealDetailScreen(meal: meals),
     ));
   }
 
@@ -72,11 +72,11 @@ class MealItem extends StatelessWidget {
                             icon: Icons.schedule,
                             label: '${meals.duration} min'),
                         const SizedBox(
-                          width: 12,
+                          width: 8,
                         ),
                         MealItemTrait(icon: Icons.work, label: complexityText),
                         const SizedBox(
-                          width: 12,
+                          width: 8,
                         ),
                         MealItemTrait(
                             icon: Icons.attach_money, label: affordabilityText),
