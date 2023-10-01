@@ -22,27 +22,22 @@ class CategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Pick Your Category'),
-      ),
-      body: GridView(
-        padding: const EdgeInsets.all(24),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, //This says how many column we need
-            childAspectRatio: 3 / 2,
-            crossAxisSpacing: 20, //Spacing Between column
-            mainAxisSpacing: 20), //Spacing between horizontally
-        children: [
-          // availableCategories.map((category)=>CategoryGridItem(category: category) ).toList()
-          for (final category in availableCategories)
-            CategoryGridItem(
-                category: category,
-                onSelectedCategory: () {
-                  _selectedCategory(context, category);
-                }),
-        ],
-      ),
+    return GridView(
+      padding: const EdgeInsets.all(24),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2, //This says how many column we need
+          childAspectRatio: 3 / 2,
+          crossAxisSpacing: 20, //Spacing Between column
+          mainAxisSpacing: 20), //Spacing between horizontally
+      children: [
+        // availableCategories.map((category)=>CategoryGridItem(category: category) ).toList()
+        for (final category in availableCategories)
+          CategoryGridItem(
+              category: category,
+              onSelectedCategory: () {
+                _selectedCategory(context, category);
+              }),
+      ],
     );
   }
 }
